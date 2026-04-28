@@ -1,8 +1,10 @@
+（English| [Tiếng Việt](custom-board_vi.md) | [中文](custom-board_zh.md)）
+
 # Custom Board Guide
 
 This guide describes how to add a new board to the XiaoZhi AI voice assistant project. XiaoZhi AI supports 70+ ESP32-series boards; each one lives in its own directory under `main/boards/`.
 
-## Important
+## Importanta
 
 > **Warning**: for a custom board whose IO configuration differs from an existing board, never overwrite the original board's configuration. Always create a new board type - or use the `builds` array in `config.json` to produce a distinct firmware name with different `sdkconfig` macros. Use `python scripts/release.py [board-directory]` to build and package the firmware.
 >
