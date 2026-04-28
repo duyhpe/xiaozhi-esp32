@@ -8,47 +8,45 @@
 
 👉 [Handcraft your AI girlfriend, beginner's guide【bilibili】](https://www.bilibili.com/video/BV1XnmFYLEJN/)
 
-As a voice interaction entry, the XiaoZhi AI chatbot leverages the AI capabilities of large models like Qwen / DeepSeek, and achieves multi-terminal control via the MCP protocol.
+Là một mục tương tác bằng giọng nói, chatbot XiaoZhi AI tận dụng khả năng AI của các mô hình lớn như Qwen / DeepSeek và đạt được điều khiển đa thiết bị đầu cuối thông qua giao thức MCP.
 
 <img src="docs/mcp-based-graph.jpg" alt="Control everything via MCP" width="320">
 
 ## Ghi chú phiên bản
 
-The current v2 version is incompatible with the v1 partition table, so it is not possible to upgrade from v1 to v2 via OTA. For partition table details, see [partitions/v2/README.md](partitions/v2/README.md).
+Phiên bản v2 hiện tại không tương thích với bảng phân vùng v1, vì vậy không thể nâng cấp từ v1 lên v2 thông qua OTA. Để biết chi tiết về bảng phân vùng, hãy xem [partitions/v2/README.md](partitions/v2/README.md).
 
-All hardware running v1 can be upgraded to v2 by manually flashing the firmware.
-
-The stable version of v1 is 1.9.2. You can switch to v1 by running `git checkout v1`. The v1 branch will be maintained until February 2026.
+Tất cả phần cứng chạy v1 có thể được nâng cấp lên v2 bằng cách nhấp nháy chương trình cơ sở theo cách thủ công.
+Phiên bản ổn định của v1 là 1.9.2. Bạn có thể chuyển sang v1 bằng cách chạy `git checkout v1`. Chi nhánh v1 sẽ được duy trì cho đến tháng 2 năm 2026.
 
 ### Các tính năng được triển khai
 
 - Wi-Fi / ML307 Cat.1 4G
-- Offline voice wake-up [ESP-SR](https://github.com/espressif/esp-sr)
-- Supports two communication protocols ([Websocket](docs/websocket.md) or MQTT+UDP)
-- Uses OPUS audio codec
-- Voice interaction based on streaming ASR + LLM + TTS architecture
-- Speaker recognition, identifies the current speaker [3D Speaker](https://github.com/modelscope/3D-Speaker)
-- OLED / LCD display, supports emoji display
-- Battery display and power management
-- Multi-language support (Chinese, English, Japanese)
-- Supports ESP32-C3, ESP32-S3, ESP32-P4 chip platforms
-- Device-side MCP for device control (Speaker, LED, Servo, GPIO, etc.)
-- Cloud-side MCP to extend large model capabilities (smart home control, PC desktop operation, knowledge search, email, etc.)
-- Customizable wake words, fonts, emojis, and chat backgrounds with online web-based editing ([Custom Assets Generator](https://github.com/78/xiaozhi-assets-generator))
+- Đánh thức giọng nói ngoại tuyến [ESP-SR](https://github.com/espressif/esp-sr)
+- Hỗ trợ hai giao thức truyền thông([Websocket](docs/websocket.md) or MQTT+UDP)
+- Sử dụng codec âm thanh OPUS
+- Tương tác giọng nói dựa trên kiến trúc phát trực tuyến ASR + LLM + TTS
+- Nhận dạng người nói, xác định người nói hiện tại [3D Speaker](https://github.com/modelscope/3D-Speaker)
+- Màn hình OLED / LCD, hỗ trợ hiển thị biểu tượng cảm xúc
+- Màn hình pin và quản lý năng lượng
+- Hỗ trợ đa ngôn ngữ (tiếng Trung, tiếng Anh, tiếng Nhật, tiếng Việt,...)
+- Hỗ trợ nền tảng chip ESP32-C3, ESP32-S3, ESP32-P4
+- MCP phía thiết bị để điều khiển thiết bị (Loa, LED, Servo, GPIO, v.v.)
+- MCP phía đám mây để mở rộng khả năng mô hình lớn (điều khiển nhà thông minh, vận hành máy tính để bàn, tìm kiếm kiến thức, email, v.v.)
+- Các từ đánh thức, phông chữ, biểu tượng cảm xúc và hình nền trò chuyện có thể tùy chỉnh với chỉnh sửa trực tuyến dựa trên web ([Custom Assets Generator](https://github.com/78/xiaozhi-assets-generator))
 
 ## Phần cứng
 
 ### Thực hành tự làm Breadboard
 
-See the Feishu document tutorial:
-
+Xem hướng dẫn tài liệu Feishu:
 👉 ["XiaoZhi AI Chatbot Encyclopedia"](https://ccnphfhqs21z.feishu.cn/wiki/F5krwD16viZoF0kKkvDcrZNYnhb?from=from_copylink)
 
 Bản trình diễn Breadboard:
 
 ![Breadboard Demo](docs/v1/wiring2.jpg)
 
-### Supports 70+ Open Source Hardware (Partial List)
+### Hỗ trợ hơn 70 phần cứng nguồn mở (Danh sách một phần)
 
 - <a href="https://oshwhub.com/li-chuang-kai-fa-ban/li-chuang-shi-zhan-pai-esp32-s3-kai-fa-ban" target="_blank" title="LiChuang ESP32-S3 Development Board">LiChuang ESP32-S3 Development Board</a>
 - <a href="https://github.com/espressif/esp-box" target="_blank" title="Espressif ESP32-S3-BOX3">Espressif ESP32-S3-BOX3</a>
@@ -115,35 +113,32 @@ The firmware connects to the official [xiaozhi.me](https://xiaozhi.me) server by
 ### Môi trường phát triển
 
 - Cursor or VSCode
-- Install ESP-IDF plugin, select SDK version 5.4 or above
-- Linux is better than Windows for faster compilation and fewer driver issues
-- This project uses Google C++ code style, please ensure compliance when submitting code
-
+- Cài đặt plugin ESP-IDF, chọn SDK phiên bản 5.4 trở lên
+- Linux tốt hơn Windows để biên dịch nhanh hơn và ít sự cố trình điều khiển hơn
+- Dự án này sử dụng kiểu mã Google C++, vui lòng đảm bảo tuân thủ khi gửi mã
 ### Tài liệu dành cho nhà phát triển
 
-- [Custom Board Guide](docs/custom-board.md) - Learn how to create custom boards for XiaoZhi AI
-- [MCP Protocol IoT Control Usage](docs/mcp-usage.md) - Learn how to control IoT devices via MCP protocol
-- [MCP Protocol Interaction Flow](docs/mcp-protocol.md) - Device-side MCP protocol implementation
+- [Custom Board Guide](docs/custom-board.md) - Tìm hiểu cách tạo bo mạch tùy chỉnh cho XiaoZhi AI
+- [MCP Protocol IoT Control Usage](docs/mcp-usage.md) - Tìm hiểu cách điều khiển các thiết bị IoT thông qua giao thức MCP
+- [MCP Protocol Interaction Flow](docs/mcp-protocol.md) - Triển khai giao thức MCP phía thiết bị
 - [MQTT + UDP Hybrid Communication Protocol Document](docs/mqtt-udp.md)
 - [A detailed WebSocket communication protocol document](docs/websocket.md)
 
 ## Cấu hình mô hình lớn
 
-If you already have a XiaoZhi AI chatbot device and have connected to the official server, you can log in to the [xiaozhi.me](https://xiaozhi.me) console for configuration.
+Nếu bạn đã có thiết bị chatbot XiaoZhi AI và đã kết nối với máy chủ chính thức, bạn có thể đăng nhập vào [xiaozhi.me](https://xiaozhi.me) Bảng điều khiển để cấu hình.
 
 👉 [Backend Operation Video Tutorial (Old Interface)](https://www.bilibili.com/video/BV1jUCUY2EKM/)
 
 ## Các dự án mã nguồn mở liên quan
 
-For server deployment on personal computers, refer to the following open-source projects:
-
+Để triển khai máy chủ trên máy tính cá nhân, hãy tham khảo các dự án mã nguồn mở sau:
 - [xinnan-tech/xiaozhi-esp32-server](https://github.com/xinnan-tech/xiaozhi-esp32-server) Python server
 - [joey-zhou/xiaozhi-esp32-server-java](https://github.com/joey-zhou/xiaozhi-esp32-server-java) Java server
 - [AnimeAIChat/xiaozhi-server-go](https://github.com/AnimeAIChat/xiaozhi-server-go) Golang server
 - [hackers365/xiaozhi-esp32-server-golang](https://github.com/hackers365/xiaozhi-esp32-server-golang) Golang server
 
-Other client projects using the XiaoZhi communication protocol:
-
+Các dự án khách hàng khác sử dụng giao thức truyền thông XiaoZhi:
 - [huangjunsen0406/py-xiaozhi](https://github.com/huangjunsen0406/py-xiaozhi) Python client
 - [TOM88812/xiaozhi-android-client](https://github.com/TOM88812/xiaozhi-android-client) Android client
 - [100askTeam/xiaozhi-linux](http://github.com/100askTeam/xiaozhi-linux) Linux client by 100ask
@@ -156,11 +151,11 @@ Custom Assets Tools:
 
 ## Về dự án
 
-This is an open-source ESP32 project, released under the MIT license, allowing anyone to use it for free, including for commercial purposes.
+Đây là một dự án ESP32 mã nguồn mở, được phát hành theo giấy phép MIT, cho phép bất kỳ ai sử dụng nó miễn phí, bao gồm cả cho mục đích thương mại.
 
-We hope this project helps everyone understand AI hardware development and apply rapidly evolving large language models to real hardware devices.
+Chúng tôi hy vọng dự án này sẽ giúp mọi người hiểu được sự phát triển phần cứng AI và áp dụng các mô hình ngôn ngữ lớn phát triển nhanh chóng vào các thiết bị phần cứng thực.
 
-If you have any ideas or suggestions, please feel free to raise Issues or join our [Discord](https://discord.gg/C759fGMBcZ) or QQ group: 994694848
+Nếu bạn có bất kỳ ý tưởng hoặc đề xuất nào, vui lòng nêu vấn đề hoặc tham gia [Discord](https://discord.gg/C759fGMBcZ) hoặc QQ group: 994694848
 
 ## Lịch sử phát triển
 
