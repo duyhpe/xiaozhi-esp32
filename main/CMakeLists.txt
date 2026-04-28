@@ -85,6 +85,7 @@ set(EMOTE_RESOLUTION "320_240")
 
 # Add board files according to BOARD_TYPE
 # Set default assets if the board uses partition table V2
+
 if(CONFIG_BOARD_TYPE_BREAD_COMPACT_WIFI)
     set(BOARD_TYPE "bread-compact-wifi")
     set(BUILTIN_TEXT_FONT font_puhui_basic_14_1)
@@ -517,6 +518,11 @@ elseif(CONFIG_BOARD_TYPE_ESP_P4_FUNCTION_EV_BOARD)
     set(BOARD_TYPE "esp-p4-function-ev-board")
 elseif(CONFIG_BOARD_TYPE_BREAD_COMPACT_WIFI_LCD)
     set(BOARD_TYPE "bread-compact-wifi-lcd")
+    set(BUILTIN_TEXT_FONT font_puhui_basic_16_4)
+    set(BUILTIN_ICON_FONT font_awesome_16_4)
+    set(DEFAULT_EMOJI_COLLECTION twemoji_32)
+elseif(CONFIG_BOARD_TYPE_DUCA_IOT_LIFT_S3)
+    set(BOARD_TYPE "duca-iot-lift-s3")
     set(BUILTIN_TEXT_FONT font_puhui_basic_16_4)
     set(BUILTIN_ICON_FONT font_awesome_16_4)
     set(DEFAULT_EMOJI_COLLECTION twemoji_32)

@@ -5,6 +5,7 @@ config OTA_URL
     default "https://api.tenclass.net/xiaozhi/ota/"
     help
         The application will access this URL to check for new firmwares and server address.
+        Ứng dụng sẽ truy cập URL này để kiểm tra firmware mới và địa chỉ máy chủ.
 
 choice
     prompt "Flash Assets"
@@ -12,6 +13,7 @@ choice
     default FLASH_EXPRESSION_ASSETS if USE_EMOTE_MESSAGE_STYLE
     help
         Select the assets to flash.
+        Ứng dụng sẽ chọn các tài nguyên để flash.
 
     config FLASH_NONE_ASSETS
         bool "Do not flash assets"
@@ -121,7 +123,10 @@ choice BOARD_TYPE
     prompt "Board Type"
     default BOARD_TYPE_BREAD_COMPACT_WIFI
     help
-        Board type. 开发板类型
+        Board type. Chọn bo mạch phù hợp với phần cứng của bạn. Select the board type that matches your hardware.
+    config BOARD_TYPE_DUCA_IOT_LIFT_S3
+        bool "Duca IoT Lift S3"
+        depends on IDF_TARGET_ESP32S3
     config BOARD_TYPE_BREAD_COMPACT_WIFI
         bool "Bread Compact WiFi (面包板)"
         depends on IDF_TARGET_ESP32S3
@@ -598,7 +603,7 @@ choice DISPLAY_OLED_TYPE
 endchoice
 
 choice DISPLAY_LCD_TYPE
-    depends on BOARD_TYPE_BREAD_COMPACT_WIFI_LCD || BOARD_TYPE_BREAD_COMPACT_ESP32_LCD || BOARD_TYPE_CGC || BOARD_TYPE_BREAD_COMPACT_WIFI_CAM
+    depends on BOARD_TYPE_DUCA_IOT_LIFT_S3 || BOARD_TYPE_BREAD_COMPACT_WIFI_LCD || BOARD_TYPE_BREAD_COMPACT_ESP32_LCD || BOARD_TYPE_CGC || BOARD_TYPE_BREAD_COMPACT_WIFI_CAM
     prompt "LCD Type"
     default LCD_ST7789_240X320
     help
