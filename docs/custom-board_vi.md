@@ -1,6 +1,6 @@
 # Hướng dẫn Bo mạch tùy chỉnh
 
-（Tiếng Việt | [中文](custom-board_zh.md) | [中文](custom-board_zh.md)）
+（Tiếng Việt | [English](custom-board.md) | [中文](custom-board_zh.md)）
 
 Hướng dẫn này giới thiệu cách tùy chỉnh chương trình khởi tạo bo mạch phát triển mới cho dự án chatbot giọng nói AI Xiaozhi. Xiaozhi AI hỗ trợ hơn 70 loại bo mạch phát triển dòng ESP32, mã khởi tạo của mỗi bo mạch được đặt trong thư mục tương ứng.
 
